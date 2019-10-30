@@ -8,13 +8,12 @@ import java.util.*;
 public class ObligSBinTre<T> implements Beholder<T> {
 
     public static void main(String[]args) {
-        ObligSBinTre<String> tre = new ObligSBinTre<>(Comparator.naturalOrder());
-        System.out.println(tre.antall());
-        tre.leggInn("hei");
-        System.out.println(tre.antall());
-        tre.leggInn("på");
-        tre.leggInn("deg");
-        //System.out.println(tre.rot.verdi + " " + tre.rot.venstre.verdi + " " + tre.rot.høyre.verdi);
+        int[] a = {4,7,2,9,4,10,8,7,4,6,1};
+        ObligSBinTre<Integer> tre = new ObligSBinTre<>(Comparator.naturalOrder());
+        for (int verdi : a) tre.leggInn(verdi);
+
+        System.out.println(tre);
+
 
     }
 
@@ -133,16 +132,56 @@ public class ObligSBinTre<T> implements Beholder<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    private static <T> Node<T> nesteInorden(Node<T> p)
-    {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+    private static <T> Node<T> nesteInorden(Node<T> p) {
+
+        //Finne den nederste noden til venstre i høyre-subtre til p
+        if (p.høyre != null) {
+            p = p.høyre;
+            while (p.venstre != null) {
+                p = p.venstre;
+            }
+            return p;
+
+        } else { //p har ikke høyrebarn og vi må oppover i treet
+            while (p.forelder != null && p.forelder.høyre == p) {
+                p = p.forelder;
+            }
+            return p;
+        }
     }
 
     @Override
-    public String toString()
-    {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        Node<T> p = rot;
+        System.out.println(p);
+
+        if (p == null) { //tomt tre
+            sb.append("]");
+            return sb.toString();
+        }
+
+        while (p.venstre != null) {
+            p = p.venstre;
+            System.out.println("*"+p);
+        }
+
+        sb.append(p.verdi);
+
+        for (int i = 0; i < antall - 1; i++) {
+            sb.append(", ");
+            p = nesteInorden(p);
+            sb.append(p.verdi);
+            System.out.println("**"+p);
+        }
+
+        sb.append("]");
+
+        return sb.toString();
     }
+
 
     public String omvendtString()
     {
