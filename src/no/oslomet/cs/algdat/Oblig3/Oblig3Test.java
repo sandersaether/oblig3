@@ -18,8 +18,6 @@ Oblig 3 sendes inn!
 
 import java.util.*;
 
-
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Oblig3Test {

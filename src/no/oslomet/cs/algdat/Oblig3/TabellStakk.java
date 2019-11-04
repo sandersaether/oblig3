@@ -1,6 +1,8 @@
 package no.oslomet.cs.algdat.Oblig3;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+import java.util.StringJoiner;
 
 public class TabellStakk<T> implements Stakk<T>
 {

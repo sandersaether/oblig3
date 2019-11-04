@@ -2,7 +2,10 @@ package no.oslomet.cs.algdat.Oblig3;
 
 ////////////////// ObligSBinTre /////////////////////////////////
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.StringJoiner;
 
 
 public class ObligSBinTre<T> implements Beholder<T> {
@@ -220,9 +223,17 @@ public class ObligSBinTre<T> implements Beholder<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    public String bladnodeverdier()
+    public String bladnodeverdier() {
+        if (tom()) return "[]";
+        StringJoiner s = new StringJoiner(", ", "[", "]");
+        bladnodeverdier(rot, s);  // den rekursive metoden bladnodeverdier
+        return s.toString();
+    }
+    private static <T> void bladnodeverdier(Node<T> p, StringJoiner s)
     {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (p.venstre == null && p.høyre == null) s.add(p.verdi.toString());
+        if (p.venstre != null) bladnodeverdier(p.venstre, s);
+        if (p.høyre != null) bladnodeverdier(p.høyre, s);
     }
 
     public String postString()
