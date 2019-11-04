@@ -96,21 +96,39 @@ public class ObligSBinTre<T> implements Beholder<T> {
     @Override
     public boolean fjern(T verdi)
     {
-        if (tom()) throw new NoSuchElementException("Treet er tomt!");
-
-        if (rot.venstre == null) rot = rot.høyre;  // rotverdien er minst
-        else
-        {
-            Node<T> p = rot.venstre, q = rot;
-            while (p.venstre != null)
-            {
-                q = p;  // q er forelder til p
-                p = p.venstre;
-            }
-            // p er noden med minst verdi
-            q.venstre = p.høyre;
+        if (verdi == null) return false;
+        Node<T> p = rot, q = null;
+        while (p != null) {
+            int cmp = comp.compare(verdi,p.verdi);
+            if (cmp < 0) { q = p; p = p.venstre; }
+            else if (cmp > 0) { q = p; p = p.høyre; }
+            else break;
         }
-        antall--;  // det er nå én node mindre i treet
+
+        if (p == null) return false;
+        if (p.venstre == null || p.høyre == null){
+            Node<T> b = p.venstre != null ? p.venstre : p.høyre;
+            if (b != null) b.forelder = q;
+            if (p == rot) rot = b;
+            else if (p == q.venstre) q.venstre = b;
+            else q.høyre = b;
+        }
+
+        else {
+            Node<T> s = p, r = p.høyre;
+            while (r.venstre != null) {
+                s = r;
+                r = r.venstre;
+            }
+            p.verdi = r.verdi;
+
+            if (r.høyre != null) r.høyre.forelder = s;
+
+            if (s != p) s.venstre = r.høyre;
+            else s.høyre = r.høyre;
+        }
+
+        antall--;
         return true;
     }
 
@@ -314,18 +332,43 @@ public class ObligSBinTre<T> implements Beholder<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    public String bladnodeverdier() {
+    public String bladnodeverdier(){
         if (tom()) return "[]";
         StringJoiner s = new StringJoiner(", ", "[", "]");
         bladnodeverdier(rot, s);
         return s.toString();
     }
+
     private static <T> void bladnodeverdier(Node<T> p, StringJoiner s)
     {
         if (p.venstre == null && p.høyre == null) s.add(p.verdi.toString());
         if (p.venstre != null) bladnodeverdier(p.venstre, s);
         if (p.høyre != null) bladnodeverdier(p.høyre, s);
     }
+
+    // hjelpemetode som finner første bladnode i subtreet med p som rot
+    private static <T> Node<T> førsteBladnode(Node<T> p)
+    {
+        while (true)
+        {
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return p;  // p er en bladnode
+        }
+    }
+
+    // hjelpemetode som med utgangspunkt i en bladnode p finner neste bladnode
+    private static <T> Node<T> nesteBladnode(Node<T> p)
+    {
+        Node<T> f = p.forelder;  // går først oppover
+        while (f != null && (p == f.høyre || f.høyre == null))
+        {
+            p = f; f = f.forelder;
+        }
+
+        return f == null ? null : førsteBladnode(f.høyre);
+    }
+
 
     public String postString()
     {
