@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d07cc7a-e523-46a6-acca-ac26ca02b879" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -56,7 +59,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/Beholder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="399">
               <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
             </state>
           </provider>
@@ -153,7 +156,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="no.oslomet.cs.algdat.Oblig3" />
       <option name="MAIN_CLASS_NAME" value="no.oslomet.cs.algdat.Oblig3.Oblig3Test" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,10 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Oblig3Test" />
+        <item itemvalue="Application.ObligSBinTre" />
         <item itemvalue="JUnit.Oblig3Test.oppgave3" />
         <item itemvalue="Application.ObligSBinTre" />
         <item itemvalue="JUnit.Oblig3Test.oppgave1" />
-        <item itemvalue="JUnit.Oblig3Test" />
       </list>
     </recent_temporary>
   </component>
@@ -229,6 +232,12 @@
     </history-entry>
     <history-entry file="Oblig3Test_oppgave3 - 2019.10.30 at 17h 40m 56s.xml">
       <configuration name="Oblig3Test.oppgave3" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Oblig3Test - 2019.11.04 at 13h 24m 37s.xml">
+      <configuration name="Oblig3Test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Oblig3Test - 2019.11.04 at 13h 26m 29s.xml">
+      <configuration name="Oblig3Test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
