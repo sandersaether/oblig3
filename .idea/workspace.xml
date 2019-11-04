@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7d07cc7a-e523-46a6-acca-ac26ca02b879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oblig 3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oblig 3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/Oblig3Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/Oblig3Test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/TabellStakk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/TabellStakk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/Oblig3Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/Oblig3Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/TabellStakk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/TabellStakk.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +27,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572871343260" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,8 +128,15 @@
       <updated>1572445382629</updated>
       <workItem from="1572445383935" duration="8462000" />
       <workItem from="1572870261491" duration="725000" />
-      <workItem from="1572878597040" duration="1138000" />
+      <workItem from="1572878597040" duration="4151000" />
     </task>
+    <task id="LOCAL−00001" summary="Begynt på oppg 8">
+      <created>1572879909496</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1572879909496</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,5 +152,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Begynt på oppg 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Begynt på oppg 8" />
   </component>
 </project>
