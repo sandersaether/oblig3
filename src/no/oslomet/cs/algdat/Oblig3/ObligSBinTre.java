@@ -179,7 +179,6 @@ public class ObligSBinTre<T> implements Beholder<T> {
         if (!tom()) nullstill(rot);
         rot = null;
         antall = 0;
-        endringer++;
     }
     private static <T> void nullstill(Node<T> p)
     {
