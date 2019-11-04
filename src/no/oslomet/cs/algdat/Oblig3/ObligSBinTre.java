@@ -187,11 +187,13 @@ public class ObligSBinTre<T> implements Beholder<T> {
             }
             return p;
 
-        } else { //p har ikke høyrebarn og vi må oppover i treet
+        }
+
+        else { //p har ikke høyrebarn og vi må oppover i treet
             while (p.forelder != null && p.forelder.høyre == p) {
                 p = p.forelder;
             }
-            return p;
+            return p.forelder;
         }
     }
 
@@ -201,7 +203,6 @@ public class ObligSBinTre<T> implements Beholder<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         Node<T> p = rot;
-        System.out.println(p);
 
         if (p == null) { //tomt tre
             sb.append("]");
@@ -210,20 +211,17 @@ public class ObligSBinTre<T> implements Beholder<T> {
 
         while (p.venstre != null) {
             p = p.venstre;
-            System.out.println("*"+p);
         }
 
         sb.append(p.verdi);
 
-        for (int i = 0; i < antall - 1; i++) {
+        for (int i = 1; i < antall; i++) {
             sb.append(", ");
             p = nesteInorden(p);
             sb.append(p.verdi);
-            System.out.println("**"+p);
         }
 
         sb.append("]");
-
         return sb.toString();
     }
 
@@ -266,12 +264,49 @@ public class ObligSBinTre<T> implements Beholder<T> {
 
     public String høyreGren()
     {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        StringJoiner s = new StringJoiner(", ", "[", "]");
+
+        if (!tom())
+        {
+            Node<T> p = rot;
+            while (true)
+            {
+                s.add(p.verdi.toString());
+                if (p.høyre != null) p = p.høyre;
+                else if (p.venstre != null) p = p.venstre;
+                else break;
+            }
+        }
+        return s.toString();
     }
 
     public String lengstGren()
     {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (tom()) return "[]";
+
+        Kø<Node<T>> kø = new TabellKø<>();
+        kø.leggInn(rot);
+
+        Node<T> p = null;
+
+        while (!kø.tom())
+        {
+            p = kø.taUt();
+            if (p.høyre != null) kø.leggInn(p.høyre);
+            if (p.venstre != null) kø.leggInn(p.venstre);
+        }
+
+        return gren(p);
+    }
+    private static <T> String gren(Node<T> p)
+    {
+        Stakk<T> s = new TabellStakk<>();
+        while (p != null)
+        {
+            s.leggInn(p.verdi);
+            p = p.forelder;
+        }
+        return s.toString();
     }
 
     public String[] grener()
