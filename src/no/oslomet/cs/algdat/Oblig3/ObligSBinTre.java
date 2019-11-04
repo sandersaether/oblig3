@@ -344,34 +344,34 @@ public class ObligSBinTre<T> implements Beholder<T> {
         if (p.venstre != null) bladnodeverdier(p.venstre, s);
         if (p.høyre != null) bladnodeverdier(p.høyre, s);
     }
-
-    // hjelpemetode som finner første bladnode i subtreet med p som rot
-    private static <T> Node<T> førsteBladnode(Node<T> p)
-    {
+    private static <T> Node<T> førsteNode(Node<T> p) {
         while (true)
         {
             if (p.venstre != null) p = p.venstre;
             else if (p.høyre != null) p = p.høyre;
-            else return p;  // p er en bladnode
+            else return p;
         }
     }
 
-    // hjelpemetode som med utgangspunkt i en bladnode p finner neste bladnode
-    private static <T> Node<T> nesteBladnode(Node<T> p)
-    {
-        Node<T> f = p.forelder;  // går først oppover
-        while (f != null && (p == f.høyre || f.høyre == null))
-        {
-            p = f; f = f.forelder;
-        }
+    public String postString() {
+            if (tom()) return "[]";
 
-        return f == null ? null : førsteBladnode(f.høyre);
-    }
+            StringJoiner sj = new StringJoiner(", ", "[", "]");
 
+            Node<T> p = førsteNode(rot);
 
-    public String postString()
-    {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+            while (true)
+            {
+                sj.add(p.verdi.toString());
+
+                if (p.forelder == null) break;
+
+                Node<T> f = p.forelder;
+
+                if (p == f.høyre || f.høyre == null) p = f;
+                else p = førsteNode(f.høyre);
+            }
+            return sj.toString();
     }
 
     @Override
