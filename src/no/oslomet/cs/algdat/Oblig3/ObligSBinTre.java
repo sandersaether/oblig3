@@ -12,9 +12,12 @@ public class ObligSBinTre<T> implements Beholder<T> {
         ObligSBinTre<Integer> tre = new ObligSBinTre<>(Comparator.naturalOrder());
         for (int verdi : a) tre.leggInn(verdi);
 
-        System.out.println(tre);
+        System.out.println("Antall bladnoder "+ tre.getAntallBladnoder(tre.rot));
 
-
+        String[] s = tre.grener();
+        for (String gren : s) {
+            System.out.println(gren);
+        }
     }
 
     private static final class Node<T>   // en indre nodeklasse
@@ -315,6 +318,7 @@ public class ObligSBinTre<T> implements Beholder<T> {
 
         return gren(p);
     }
+
     private static <T> String gren(Node<T> p)
     {
         Stakk<T> s = new TabellStakk<>();
@@ -326,9 +330,41 @@ public class ObligSBinTre<T> implements Beholder<T> {
         return s.toString();
     }
 
-    public String[] grener()
-    {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+    public String[] grener() {
+        String[] gren_array = new String[0];
+
+        if (tom()) {
+            return gren_array;
+        }
+
+        Node<T> p = førsteNode(rot); //Starter lengst til venstre
+        int count = getAntallBladnoder(rot);
+        gren_array = new String[count]; //setter gren_array til riktig størelse
+        gren_array[0] = gren(p);
+
+        int i = 1;
+        while (i < count) {
+            p = nesteInorden(p);
+            if (p.venstre == null && p.høyre == null) {
+                gren_array[i] = gren(p);
+                i++;
+            }
+        }
+
+        return gren_array;
+    }
+
+    //Hjelpemetode til grener()
+    private int getAntallBladnoder(Node<T> p) {
+        if (p == null) {
+            return 0;
+        }
+        if (p.venstre == null && p.høyre == null) {
+            return 1;
+        }
+        else {
+            return getAntallBladnoder(p.venstre) + getAntallBladnoder(p.høyre);
+        }
     }
 
     public String bladnodeverdier(){
