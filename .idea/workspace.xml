@@ -4,6 +4,7 @@
     <list default="true" id="7d07cc7a-e523-46a6-acca-ac26ca02b879" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$BladnodeIterator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/oblig 3/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/oslomet/cs/algdat/Oblig3/ObligSBinTre.java" afterDir="false" />
     </list>
@@ -16,18 +17,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1552" />
-    <option name="height" value="840" />
-  </component>
+  <component name="ProjectId" id="1TBwWsekRxbMtUx7UaYT6bSQq8a" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572879690173" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunDashboard">
@@ -125,6 +124,7 @@
       <updated>1572445382629</updated>
       <workItem from="1572445383935" duration="8462000" />
       <workItem from="1572873925072" duration="5362000" />
+      <workItem from="1572946835341" duration="1892000" />
     </task>
     <task id="LOCAL−00001" summary="Oppgave 5">
       <created>1572883146277</created>
@@ -138,14 +138,32 @@
       <option name="presentableId" value="LOCAL−00002" />
       <updated>1572883187878</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL−00003" summary="Ferdig med oppgave 8">
+      <created>1572883884650</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1572883884650</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Oppgave 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oppgave 5" />
+    <MESSAGE value="Ferdig med oppgave 8" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ferdig med oppgave 8" />
   </component>
 </project>

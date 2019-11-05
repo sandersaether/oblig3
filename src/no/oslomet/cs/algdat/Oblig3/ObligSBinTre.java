@@ -74,7 +74,8 @@ public class ObligSBinTre<T> implements Beholder<T> {
         else if (cmp < 0) q.venstre = p;         // venstre barn til q
         else q.høyre = p;                        // høyre barn til q
 
-        antall++;                                // én verdi mer i treet
+        antall++;
+        endringer++;                             // én verdi mer i treet
         return true;                             // vellykket innlegging
     }
 
@@ -131,6 +132,7 @@ public class ObligSBinTre<T> implements Beholder<T> {
             else s.høyre = r.høyre;
         }
 
+        endringer++;
         antall--;
         return true;
     }
@@ -182,6 +184,7 @@ public class ObligSBinTre<T> implements Beholder<T> {
         if (!tom()) nullstill(rot);
         rot = null;
         antall = 0;
+        endringer++;
     }
     private static <T> void nullstill(Node<T> p)
     {
@@ -381,8 +384,7 @@ public class ObligSBinTre<T> implements Beholder<T> {
         if (p.høyre != null) bladnodeverdier(p.høyre, s);
     }
     private static <T> Node<T> førsteNode(Node<T> p) {
-        while (true)
-        {
+        while (true){
             if (p.venstre != null) p = p.venstre;
             else if (p.høyre != null) p = p.høyre;
             else return p;
@@ -391,17 +393,14 @@ public class ObligSBinTre<T> implements Beholder<T> {
 
     public String postString() {
             if (tom()) return "[]";
-
             StringJoiner sj = new StringJoiner(", ", "[", "]");
 
             Node<T> p = førsteNode(rot);
 
-            while (true)
-            {
+            while (true) {
                 sj.add(p.verdi.toString());
 
                 if (p.forelder == null) break;
-
                 Node<T> f = p.forelder;
 
                 if (p == f.høyre || f.høyre == null) p = f;
@@ -410,22 +409,39 @@ public class ObligSBinTre<T> implements Beholder<T> {
             return sj.toString();
     }
 
+    private static <T> Node<T> fBladnode(Node<T> p){
+        while (true){
+            if (p.venstre != null) p = p.venstre;
+            else if (p.høyre != null) p = p.høyre;
+            else return p;  // p er en bladnode
+        }
+    }
+
+    private static <T> Node<T> nBladnode(Node<T> p){
+        Node<T> f = p.forelder;
+        while (f != null && (p == f.høyre || f.høyre == null)){
+            p = f; f = f.forelder;
+        }
+        return f == null ? null : fBladnode(f.høyre);
+    }
+
     @Override
     public Iterator<T> iterator()
     {
         return new BladnodeIterator();
     }
 
-    private class BladnodeIterator implements Iterator<T>
-    {
+    private class BladnodeIterator implements Iterator<T>{
         private Node<T> p = rot, q = null;
         private boolean removeOK = false;
         private int iteratorendringer = endringer;
 
-        private BladnodeIterator()  // konstruktør
-        {
-            throw new UnsupportedOperationException("Ikke kodet ennå!");
-        }
+        private BladnodeIterator(){
+            if (tom()) return;
+            p = fBladnode(rot);
+            q = null;
+            removeOK = false;
+            iteratorendringer = endringer;}
 
         @Override
         public boolean hasNext()
@@ -436,7 +452,15 @@ public class ObligSBinTre<T> implements Beholder<T> {
         @Override
         public T next()
         {
-            throw new UnsupportedOperationException("Ikke kodet ennå!");
+            if (!hasNext()) throw new NoSuchElementException("Ikke flere bladnodeverdier!");
+
+            if (endringer != iteratorendringer) throw new
+                    ConcurrentModificationException("Treet har blitt endret!");
+
+            removeOK = true;
+            q = p; p = nBladnode(p);  // bruker en hjelpemetode
+
+            return q.verdi;
         }
 
         @Override
